@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+   <title>Sunny Medical Profile Setup</title>
+   <link rel="stylesheet" href="homework3.css">
+   <script>
+       // to display current date
+       function formatDate() {
+           const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+           const today = new Date();
+           document.getElementById('date').textContent = `Today is: ${today.toLocaleDateString('en-US', options)}`;
+       }
+       window.onload = formatDate;
+   </script>
+
+
+   <!-- HEADER -->
+   <head>
+          <div id="header">
+           <table style="width: 100%;">
+       <tr>
+           <td style="vertical-align: top;">
+               <img src="hw2.jpeg" width="300" height="200" alt="medicine"><br>
+               <h1>Sunny Medical</h1>
+           </td>
+           <td style="text-align: right; vertical-align: bottom;">
+               <p id="date">Today is: </p>
+           </td>
+       </tr>
+   </table>
+       </div>
+   </head>
+   <hr>
+<body>
+   <!-- BODY SECTION -->
+   <div id="body">
+       <form id="userInfo">
+           <table>
+               <!-- Profile Setup -->
+               <tr><th align="left">Set up a new profile</th></tr>
+               <!-- Name -->
+               <tr>
+                       <td>First Name:</td>
+                       <td><label for="firstname"></label>
+                               <input type="text" id="firstname" placeholder="Enter your first name">
+                                <p id="errorFirstname" style="color: red; font-size: 12px;"></p>
+                       </td>
+                       <td>Middle Initial:</td>
+                       <td><input type="text" id="midinitial" name="midinitial" size="1" maxlength="1" placeholder="A">
+                           <p id="midinitial-error" style="color: red; font-size: 12px;"></p>
+                       </td>
+                       <td>Last Name:</td>
+                       <td><input type="text" id="lastname" name="lastname" maxlength="30" placeholder="Enter your last name">
+                           <p id="errorLastname" style="color: red"; font-size="12px;"></p>   
+                       </td>
+               </tr>
+               <!-- DOB and SSN -->
+               <tr>
+                   <td>Date of Birth (MM/DD/YYYY):</td>
+                   <td><input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY">
+                       <p id="errorDob" style="color: red; font-size: 12px;"></p>
+                   </td>
+               </tr>
+               <tr>
+                   <td>Social Security Number:</td>
+                   <td><input type="password" id="ssn" name="ssn" maxlength="11" placeholder="XXX-XX-XXXX">
+                   <p id="errorSsn" style="color: red; font-size: 12px;"></p>
+                   </td>
+               </tr>
+               <!-- PHONE NUMBER -->
+               <tr>
+                   <td>Phone Number:</td>
+                   <td><input type="phone" id="phone" name="phone" maxlength="10" placeholder="000-000-0000">
+                   </td>
+               <!-- Address -->
+               <tr>
+                   <td>Address Line 1:</td>
+                   <td><input type="text" id="address1" name="address1" minlength="2" maxlength="30"></td>
+               </tr>
+               <tr>
+                   <td>Address Line 2:</td>
+                   <td><input type="text" id="address2" name="address2"  minlength="2" maxlength="30"></td>
+               </tr>
+               <tr>
+                   <td>City:</td>
+                   <td><input type="text" id="city" name="city" minlength="2" maxlength="30"></td>
+               </tr>
+               <tr>
+                   <td>State:</td>
+                   <td>
+                       <select id="state" name="state">
+                             <option value="">Select State</option>
+                       </select>
+                       <p id="errorState" style="color: red; font-size: 12px;"></p>
+                   </td>
+               </tr>
+               <tr>
+                   <td>Zip Code:</td>
+                   <td><input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="12345 or 12345-6789">
+                   <p id="errorZip" style="color: red; font-size: 12px;"></p>
+                   </td>
+               </tr>
+               <!-- Contact Info -->
+               <tr>
+                   <td>Email Address:</td>
+                   <td><input type="email" id="email" name="email" placeholder="name@domain.tld"></td>
+                   <p id="emailError" style="color: red; font-size: 12px;"></p>
+              
+
+
+               </tr>
+               <!-- Symptoms -->
+               <tr>
+                   <td>Describe Your Current Symptoms:</td>
+                   <td><textarea id="symptoms" name="symptoms" rows="3" placeholder="Describe your symptoms here..."></textarea></td>
+               </tr>
+               <!-- Checkboxes for Symptoms -->
+               <tr>
+                   <td>Current Symptoms:</td>
+                   <td>
+                       <input type="checkbox" id="fever" name="symptoms" value="fever"> Fever<br>
+                       <input type="checkbox" id="headache" name="symptoms" value="headache"> Headache<br>
+                       <input type="checkbox" id="nausea" name="symptoms" value="nausea"> Nausea<br>
+                       <input type="checkbox" id="vomiting" name="symptoms" value="vomiting"> Vomiting<br>
+                       <input type="checkbox" id="none" name="symptoms" value="none"> None
+                   </td>
+               </tr>
+               <!-- Gender -->
+               <tr>
+                   <td>Gender:</td>
+                   <td>
+                       <input type="radio" id="male" name="gender" value="Male"> Male
+                       <input type="radio" id="female" name="gender" value="Female"> Female
+                   </td>
+               </tr>
+               <!-- Pregnancy and allergies -->
+               <tr>
+                   <td>Pregnant:</td>
+                   <td>
+                       <input type="radio" id="pregnant_yes" name="pregnant" value="Yes"> Yes
+                       <input type="radio" id="pregnant_no" name="pregnant" value="No"> No
+                   </td>
+               </tr>
+               <tr>
+                   <td>Allergies:</td>
+                   <td>
+                       <input type="radio" id="allergies_yes" name="allergies" value="Yes"> Yes
+                       <input type="radio" id="allergies_no" name="allergies" value="No"> No
+                   </td>
+               </tr>
+               <!-- Health slider -->
+               <tr>
+                   <td>Rate Your Health (1-10):</td>
+                   <td>
+                       <input type="range" id="health" name="health" min="1" max="10" value="5" oninput="document.getElementById('healthValue').textContent = this.value">
+                       <span id="healthValue">5</span>
+                   </td>
+               </tr>
+           </table>
+               <!-- user ID and password -->
+               <form id="userInfo">
+            <table>
+               <tr>
+                   <td>Desired User ID:</td>
+                   <td><input type="text" id="userid" name="userid" placeholder="Enter User ID"
+                   <p id="errorUserid" style="color: red; font-size: 12px;"></p>
+                   </td>
+               </tr>
+               <tr>
+                   <td>Password:</td>
+                   <td><input type="password" id="password" name="password" placeholder="Enter password">
+                <p id="errorPassword" style="color: red; font-size: 12px;"></p>
+                   </td>
+               </tr>
+               <tr>
+                   <td>Re-enter Password:</td>
+                   <td><input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password">
+                   <p id="errorConfirmPassword" style="color: red; font-size: 12px;"></p>
+                   </td>
+              
+               <!-- Submit reset buttons -->
+              <tr>
+                   <td colspan="2">
+                       <button type="button" id="validateBtn">Validate</button>
+                       <button type="submit" id="submitBtn" style="display: none;">Submit</button>
+                       <button type="reset">Clear and Start Over</button>
+                   </td>
+               </tr>
+           </table>
+       </form>
+   </div>
+
+
+   <!-- POP UP MODAL -->
+   <div id="confirmationModal" style="display:none; position: fixed; top: 20%; left: 30%; background: lightblue; padding: 20px; border: 1px solid black;">
+       <div id="modalContent"></div>
+       <button id="closeModal">Close</button>
+
+
+   </div>
+
+
+   <!-- Load JavaScript -->
+   <script src="homework3.js"></script>
+</body>
+   <hr>
+
+
+   <!-- FOOTER SECTION -->
+   <div id="footer">
+       <table>
+           <tr>
+               <td>
+                   <button onclick="alert('Contact us at support@example.com')">Contact Us</button>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <address>
+                       Written by Emma S.<br>
+                       Visit Us: 1234 Way To Go Lane, USA
+                   </address>
+               </td>
+           </tr>
+       </table>
+   </div>
+</body>
+</html>
